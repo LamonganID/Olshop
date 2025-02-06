@@ -16,8 +16,14 @@ class ProductImage extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
     public function getImageUrlAttribute($value)
     {
         return asset('storage/'.$value);
+    }
+
+    public function setImageUrlAttribute($value)
+    {
+        $this->attributes['image_url'] = str_replace(asset('storage/'), '', $value);
     }
 }

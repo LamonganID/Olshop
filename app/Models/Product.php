@@ -16,5 +16,18 @@ class Product extends Model
         'stck',
     ];
 
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
+    public function ordersitem(){
+        return $this->belongsToMany(OrderItem::class);
+    }
+    public function images(){
+        return $this->hasMany(ProductImage::class);
+    }
+
     
 }

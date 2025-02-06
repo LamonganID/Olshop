@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     {
         return [
             //
-
+            
         ];
     }
 }
