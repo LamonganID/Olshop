@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->casecadeOnDelete();
             $table->foreignId('product_id')->constrained()->casecadeOnDelete();
-            $table->interger('ratting')->check('rating >= And rating <=5');
+            $table->integer('ratting')->check('rating >= And rating <=5');
             $table->text('review');
             $table->timestamps();
         });
