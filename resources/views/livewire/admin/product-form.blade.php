@@ -1,7 +1,7 @@
 <div class="p-6 bg-white rounded shadow">
     <h2 class="text-lg font-semibold">{{ $isEdit ? 'Edit' : 'Tambah' }} Produk</h2>
 
-    <form wire:submit.prevent="save" class="space-y-4">
+    <form wire:submit="simpan" class="space-y-4">
         <div>
             <label class="block">Nama Produk</label>
             <input type="text" wire:model="name" class="w-full border p-2 rounded">
@@ -50,7 +50,7 @@
         </div>
 
         <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">
-            {{ $isEdit ? 'Update' : 'Simpan' }}
+            {{ $isEdit ? 'Update' : 'Save' }}
         </button>
     </form>
 </div>

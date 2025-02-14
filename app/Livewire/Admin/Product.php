@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin;
 
+use Doctrine\Inflector\Rules\English\Rules;
 use Livewire\Component;
 use App\Models\Products;
 use App\Models\Categories;
@@ -9,6 +10,7 @@ use Livewire\Attributes\Title;
 use Livewire\WithPagination;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
+#[Rules('required')]
 
 #[Title('Production') ]
 class Product extends Component
@@ -35,10 +37,12 @@ class Product extends Component
             'categories_id'=>Categories::all(),
         ]);
     }
+
     public function create(){
         $this->reset();
         $this->isEdit=false;
     }
+
     public function store(){
         $this->validate([
             'name' => 'required|string|max:255',
@@ -58,6 +62,7 @@ class Product extends Component
             'image'=>$imagePath,
             'price'=>$this->price
         ]);
+        
         session()->flash('massage','Product berhasil di tambahkan');
         $this->resetInput();
     }
