@@ -1,14 +1,14 @@
 <?php
-use App\Livewire\Admin\Product;
-use App\Livewire\Admin\ProductForm;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Admin\Product;
+use App\Livewire\Admin\product\Index;
+
 
 Route::view('/', 'welcome');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/products', Product::class)->name('admin.products');
-    Route::get('/admin/product-form', ProductForm::class)->name('create');
-});
+Route::get('admin/product', Product::class)->name('product');
+Route::get('admin/product/index', Index::class)->name('product.index');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
