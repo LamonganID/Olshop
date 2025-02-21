@@ -34,17 +34,17 @@
         </div>
 
             <!-- Page Heading -->
+        <div class="px-6">
             @if (isset($header))
                 {{ $header }}
             @endif
-
-            <!-- Page Content -->
-            <div class="w-full lg:ps-64">
-                <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-                  <!-- your content goes here ... -->
-                  @yield('content')
-                </div>
-            </div>
+        </div>
+        <!-- Page Content -->
+        <main id="content">
+            {{ $slot }}
+        </main>
+            
+        <!-- your content goes here ... -->
         @livewireScripts()
         <script src="./node_modules/preline/dist/preline.js"></script>
         <script>
