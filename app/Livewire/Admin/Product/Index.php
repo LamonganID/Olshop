@@ -8,6 +8,7 @@ use Livewire\Attributes\Title;
 use Livewire\Attributes\Layout;
 
 #[Title('Products')]
+#[Layout('layouts.app')]
 class Index extends Component
 {
     public $products;

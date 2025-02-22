@@ -7,8 +7,6 @@
 
         <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
-        {{-- CDN --}}
-
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -27,24 +25,27 @@
         </script>
     </head>
     <body class="font-sans antialiased bg-white dark:bg-gray-900">
-        <div class="-mt-px">            
+        <div class="min-h-screen flex flex-col">
             @livewire('layout.header')
             @livewire('layout.breadcrumb')
             <livewire:layout.navigation />
-        </div>
 
             <!-- Page Heading -->
-        <div class="px-6">
-            @if (isset($header))
-                {{ $header }}
-            @endif
+            <div class="px-6">
+                @if (isset($header))
+                    {{ $header }}
+                @endif
+            </div>
+            <!-- Page Content -->
+            <main id="content" class="flex-grow">
+                @yield('content')
+            </main>
+            <!-- Footer -->
+            <footer class="bg-gray-100 dark:bg-gray-800 text-center py-4">
+                <p class="text-gray-600 dark:text-gray-400">&copy; {{ date('Y') }} Your Company. All rights reserved.</p>
+            </footer>
         </div>
-        <!-- Page Content -->
-        <main id="content">
-            {{ $slot }}
-        </main>
             
-        <!-- your content goes here ... -->
         @livewireScripts()
         <script src="./node_modules/preline/dist/preline.js"></script>
         <script>
