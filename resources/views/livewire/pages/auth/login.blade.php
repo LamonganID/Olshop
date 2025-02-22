@@ -32,7 +32,7 @@ new #[Layout('layouts.guest')] class extends Component
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus autocomplete="username" 
+            <x-text-input wire:model="form.email" id="emaifl" class="block mt-1 w-full" type="email" name="email" required autofocus autocomplete="username" placeholder="Enter your email"
                 x-data="{}"
                 x-on:input="if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($event.target.value)) { $event.target.setCustomValidity('Please enter a valid email address'); } else { $event.target.setCustomValidity(''); }"
             />
@@ -47,7 +47,7 @@ new #[Layout('layouts.guest')] class extends Component
                 <x-text-input wire:model="form.password" id="password" class="block mt-1 w-full pr-10"
                                 type="password"
                                 name="password"
-                                required autocomplete="current-password" />
+                                required autocomplete="current-password" placeholder="Enter your password" />
                 <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
                     @click="const input = $el.previousElementSibling; input.type = input.type === 'password' ? 'text' : 'password';">
                     <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
