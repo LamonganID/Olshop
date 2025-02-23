@@ -24,7 +24,7 @@
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $product->name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $product->slug ?? 'Unknow Category' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">${{ number_format($product->price, 2) }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Rp{{ number_format($product->price, 2) }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $product->stock }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex space-x-2">
