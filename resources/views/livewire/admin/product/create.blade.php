@@ -1,30 +1,46 @@
-<div class="container mx-auto px-4 py-6">
-    <h1 class="text-2xl font-bold mb-6">Create Product</h1>
+@extends('layouts.app')
+@section('content')
+<div class="container mx-auto px-6 py-8 shadow-lg rounded-lg bg-white">
+    <h1 class="text-3xl font-bold mb-6 text-center">Create Product</h1>
     <form wire:submit.prevent="createProduct">
         <div class="mb-4">
-            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-            <input type="text" id="name" wire:model="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <label for="name" class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-box"></i> Name
+            </label>
+            <input type="text" id="name" wire:model="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition">
         </div>
         <div class="mb-4">
-            <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
-            <select id="category_id" wire:model="category_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                <!-- Populate categories -->
+            <label for="category_id" class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-tags"></i> Category
+            </label>
+            <select id="category_id" wire:model="category_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition">
+                <option value="">Select a category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="mb-4">
-            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-            <input type="number" id="price" wire:model="price" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <label for="price" class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-dollar-sign"></i> Price
+            </label>
+            <input type="number" id="price" wire:model="price" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition">
         </div>
         <div class="mb-4">
-            <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
-            <input type="number" id="stock" wire:model="stock" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <label for="stock" class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-boxes"></i> Stock
+            </label>
+            <input type="number" id="stock" wire:model="stock" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition">
         </div>
         <div class="mb-4">
-            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea id="description" wire:model="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+            <label for="description" class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-pencil-alt"></i> Description
+            </label>
+            <textarea id="description" wire:model="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition"></textarea>
         </div>
         <div class="flex justify-end">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Create Product</button>
+            <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Create Product</button>
         </div>
     </form>
 </div>
+@endsection

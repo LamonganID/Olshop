@@ -6,6 +6,7 @@ use App\Models\Products;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\WithFileUploads;
+use App\Models\Categories;
 
 #[Title('Create Product')]
 class Create extends Component
@@ -43,6 +44,7 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.admin.product.create');
+        $categories = Categories::all();
+        return view('livewire.admin.product.create', compact('categories'));
     }
 }

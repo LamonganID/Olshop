@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light">
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,24 +27,19 @@
     </head>
     <body class="font-sans antialiased bg-white dark:bg-gray-900">
         <div class="min-h-screen flex flex-col">
-            @livewire('layout.header')
-            @livewire('layout.breadcrumb')
-            <livewire:layout.navigation />
+            @include('livewire.layout.header')
+            @include('livewire.layout.navigation')
 
             <!-- Page Heading -->
-            <div class="px-6">
+            <div class="px-6 mt-4">
                 @if (isset($header))
                     {{ $header }}
                 @endif
             </div>
             <!-- Page Content -->
-            <main id="content" class="flex-grow">
+            <main id="content" class="flex-grow p-6">
                 @yield('content')
             </main>
-            <!-- Footer -->
-            <footer class="bg-gray-100 dark:bg-gray-800 text-center py-4">
-                <p class="text-gray-600 dark:text-gray-400">&copy; {{ date('Y') }} Your Company. All rights reserved.</p>
-            </footer>
         </div>
             
         @livewireScripts()

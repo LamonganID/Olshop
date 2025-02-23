@@ -8,7 +8,10 @@
         <div class="mb-4">
             <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
             <select id="category_id" wire:model="product.category_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                <!-- Populate categories -->
+                <option value="">Select a category</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
             </select>
         </div>
         <div class="mb-4">

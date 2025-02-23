@@ -29,6 +29,5 @@ class Index extends Component
     {
         return view('livewire.admin.product.index');
     }
-
 }
 
