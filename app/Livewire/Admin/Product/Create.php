@@ -2,13 +2,14 @@
 
 namespace App\Livewire\Admin\Product;
 
-use App\Models\Products;
 use Livewire\Component;
-use Livewire\Attributes\Title;
-use Livewire\WithFileUploads;
+use App\Models\Products;
 use App\Models\Categories;
 use Livewire\Attributes\Rule;
-
+use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
+#[Layout('layouts.app')]
 #[Title('Create Product')]
 class Create extends Component
 {

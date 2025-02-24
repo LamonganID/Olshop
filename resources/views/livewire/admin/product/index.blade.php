@@ -22,7 +22,7 @@
                 @foreach($products as $product)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $product->name }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $product->category->name ?? 'Unknown Category' }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $product->slug ?? 'Unknown Category' }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">Rp {{ number_format($product->price, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $product->stock }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
