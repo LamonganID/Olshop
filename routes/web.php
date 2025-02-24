@@ -4,6 +4,7 @@ use App\Livewire\Admin\Product\Create;
 use App\Livewire\Admin\Product\Edit;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\Product\Index;
+use App\Http\Controllers\Auth\LogoutController;
 
 Route::view('/', 'welcome')->name('home');
 
@@ -13,6 +14,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('products/create', Create::class)->name('products.create');
     Route::get('products/edit/{id}', Edit::class)->name('products.edit');
 });
+
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
