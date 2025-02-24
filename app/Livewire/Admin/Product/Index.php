@@ -25,6 +25,11 @@ class Index extends Component
         $this->products = Products::with('category')->get();
     }
 
+    public function edit($id)
+    {
+        return redirect()->route('products.edit', ['id' => $id]);
+    }
+
     public function render()
     {
         return view('livewire.admin.product.index');

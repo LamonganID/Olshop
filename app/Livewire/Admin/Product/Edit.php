@@ -3,11 +3,13 @@
 namespace App\Livewire\Admin\Product;
 
 use App\Models\Products;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 #[Title('Edit Product')]
+#[Layout('layouts.app')]
 
 class Edit extends Component
 {
