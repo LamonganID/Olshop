@@ -31,17 +31,18 @@
             @include('livewire.layout.navigation')
 
             <!-- Page Heading -->
-            <div class="px-6 mt-4">
+            <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
                 @if (isset($header))
                     {{ $header }}
                 @endif
             </div>
-            <!-- Page Content -->
-            <main id="content" class="flex-grow p-6">
-                @yield('content')
-            </main>
-        </div>
-            
+            <!-- Content -->
+            <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
+                <!-- your content goes here ... -->
+                {{ $slot }}
+            </div>
+            <!-- End Content -->
+
         @livewireScripts()
         <script src="./node_modules/preline/dist/preline.js"></script>
         <script>

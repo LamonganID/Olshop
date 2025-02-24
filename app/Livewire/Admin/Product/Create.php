@@ -7,15 +7,21 @@ use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\WithFileUploads;
 use App\Models\Categories;
+use Livewire\Attributes\Rule;
 
 #[Title('Create Product')]
 class Create extends Component
 {
     use WithFileUploads;
+    #[Rule('required')]
     public $name;
+    #[Rule('required')]
     public $category_id;
+    #[Rule('required')]
     public $price;
+    #[Rule('required')]
     public $stock;
+    #[Rule('required')]
     public $description;
 
     protected $rules = [
