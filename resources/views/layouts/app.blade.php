@@ -26,23 +26,19 @@
         </script>
     </head>
     <body class="font-sans antialiased bg-white dark:bg-gray-900">
-        <div class="min-h-screen flex flex-col">
-            @include('livewire.layout.header')
-            @include('livewire.layout.navigation')
+        @include('livewire.layout.navigation')
 
             <!-- Page Heading -->
-            <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
-                @if (isset($header))
-                    {{ $header }}
-                @endif
-            </div>
-            <!-- Content -->
-            <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
-                <!-- your content goes here ... -->
-                {{ $slot }}
-            </div>
+            <div class="w-full lg:ps-64">
+                <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+                  <!-- your content goes here ... -->
+                    @if (isset($header))
+                      {{ $header }}
+                    @endif
+                      {{ $slot }}
+                </div>
+              </div>
             <!-- End Content -->
-
         @livewireScripts()
         <script src="./node_modules/preline/dist/preline.js"></script>
         <script>

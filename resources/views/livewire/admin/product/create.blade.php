@@ -1,8 +1,7 @@
-{{-- @extends('layouts.app')
-@section('content') --}}
+
 <div class="container mx-auto px-6 py-8 shadow-lg rounded-lg bg-white">
     <h1 class="text-3xl font-bold mb-6 text-center">Create Product</h1>
-    <form wire:model="createProduct">
+    <form wire:submit.prevent="createProduct">
         <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-700">
                 <i class="fas fa-box"></i> Name
@@ -16,7 +15,7 @@
             <label for="category_id" class="block text-sm font-medium text-gray-700">
                 <i class="fas fa-tags"></i> Category
             </label>
-            <select id="category_id" wire:model="category_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition">
+            <select id="category_id" wire:model="categories_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition">
                 <option value="">Select a category</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -55,4 +54,3 @@
         </div>
     </form>
 </div>
-{{-- @endsection --}}

@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Product;
 use Livewire\Component;
 use App\Models\Products;
 use App\Models\Categories;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
@@ -14,20 +15,15 @@ use Livewire\Attributes\Layout;
 class Create extends Component
 {
     use WithFileUploads;
-    #[Rule('required')]
     public $name;
-    #[Rule('required')]
-    public $category_id;
-    #[Rule('required')]
+    public $categories_id;
     public $price;
-    #[Rule('required')]
     public $stock;
-    #[Rule('required')]
     public $description;
 
     protected $rules = [
         'name' => 'required|string|max:255',
-        'category_id' => 'required|exists:categories,id',
+        'categories_id' => 'required|exists:categories,id',
         'price' => 'required|numeric',
         'stock' => 'required|integer',
         'description' => 'nullable|string',
@@ -38,8 +34,9 @@ class Create extends Component
         $this->validate();
 
         Products::create([
+            'slug' => Str::slug($this->name),
             'name' => $this->name,
-            'category_id' => $this->category_id,
+            'categories_id' => $this->categories_id,
             'price' => $this->price,
             'stock' => $this->stock,
             'description' => $this->description,
