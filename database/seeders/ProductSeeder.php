@@ -17,9 +17,9 @@ class ProductSeeder extends Seeder
     {
         //
         $products = [
-            ['Baju Kemeja Pria', 1, 150000, 10, 'baju-kemeja.jpg'],
-            ['Gaun Wanita Elegan', 2, 250000, 5, 'gaun-wanita.jpg'],
-            ['Baju Anak Laki-laki', 3, 100000, 15, 'baju-anak.jpg']
+            ['Baju Kemeja Pria', 1, 150000, 10,'L', 'baju-kemeja.jpg'],
+            ['Gaun Wanita Elegan', 2, 250000, 5, 'XL', 'gaun-wanita.jpg'],
+            ['Baju Anak Laki-laki', 3, 100000, 15,'XXL', 'baju-anak.jpg']
         ];
 
         foreach ($products as $product) {
@@ -28,9 +28,10 @@ class ProductSeeder extends Seeder
                 'categories_id'=> $product[1],
                 'slug' => Str::slug($product[0]),
                 'description' => 'Deskripsi produk ' . $product[0],
+                'size' => $product[4],
                 'price' => $product[2],
                 'stock' => $product[3],
-                'image' => $product[4],
+                'image' => $product[5],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

@@ -21,97 +21,87 @@
                 </a>
             </div>
 
-  
             <!-- Table -->
-            <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-              <thead class="bg-gray-50 dark:bg-neutral-800">
-                <tr>
-                  <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      #
-                    </span>
-                  </th>
-  
-                  <th scope="col" class="px-6 py-3 text-start whitespace-nowrap min-w-64">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      Products
-                    </span>
-                  </th>
-  
-                  <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      Price
-                    </span>
-                  </th>
-  
-                  <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      Categories
-                    </span>
-                  </th>
-  
-                  <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      Description
-                    </span>
-                  </th>
-  
-                  <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      Stock
-                    </span>
-                  </th>
-
-                <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                      Image
-                    </span>
-                  </th>
-                </tr>
-              </thead>
-  
-              <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                @foreach($products as $product)
-                <tr>
-                  <td class="size-px whitespace-nowrap px-6 py-3">
-                    <span class="text-sm text-gray-800 dark:text-neutral-200">{{ $loop->iteration }}</span>
-                  </td>
-
-                  <td class="size-px whitespace-nowrap px-6 py-3">
-                    <div class="flex items-center gap-x-3">
-                      <span class="font-semibold text-sm text-gray-800 dark:text-white">{{ $product->name }}</span>
-                    </div>
-                  </td>
-                  <td class="size-px whitespace-nowrap px-6 py-3">
-                    <span class="text-sm text-gray-800 dark:text-white">Rp {{ $product->price }}</span>
-                  </td>
-                  <td class="size-px whitespace-nowrap px-6 py-3">
-                    <span class="text-sm text-red-500">{{ $product->category->name }}</span>
-
-                  </td>
-                  <td class="size-px whitespace-nowrap px-6 py-3">
-                    <span class="text-sm text-gray-800 dark:text-white">{{ $product->description }}</span>
-
-                  </td>
-                  <td class="h-px w-72 whitespace-nowrap">
-                    <span class="text-sm text-red-500">{{$product->stock}}</span>
-                  </td>
-                  <td class="size-px whitespace-nowrap px-6 py-3">
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                <thead class="bg-gray-50 dark:bg-neutral-800">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        #
+                      </span>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap min-w-64">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Products
+                      </span>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Price
+                      </span>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Categories
+                      </span>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Description
+                      </span>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Stock
+                      </span>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Image
+                      </span>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Size
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+                  @foreach($products as $product)
+                  <tr>
                     <td class="size-px whitespace-nowrap px-6 py-3">
-                        <img src="{{ $product->image ?? 'path/to/default/image.png' }}" alt="{{ $product->name }}" class="w-16 h-16">
+                      <span class="text-sm text-gray-800 dark:text-neutral-200">{{ $loop->iteration }}</span>
                     </td>
-
-                  </td>
-                  
-                  <td class="size-px whitespace-nowrap px-6 py-3">
-                    <div class="inline-block">
-                      <div id="hs-cryptocurrency-market-cap-1"></div>
-                    </div>
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <div class="flex items-center gap-x-3">
+                        <span class="font-semibold text-sm text-gray-800 dark:text-white">{{ $product->name }}</span>
+                      </div>
+                    </td>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <span class="text-sm text-gray-800 dark:text-white">Rp {{ $product->price }}</span>
+                    </td>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <span class="text-sm text-red-500">{{ $product->category->name }}</span>
+                    </td>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <span class="text-sm text-gray-800 dark:text-white">{{ $product->description }}</span>
+                    </td>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <span class="text-sm text-red-500">{{$product->stock}}</span>
+                    </td>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <img src="{{ $product->image ?? asset('path/to/default/image.png') }}" alt="{{ $product->name }}" class="w-16 h-16">
+                    </td>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <span class="text-sm text-gray-800 dark:text-white">{{ $product->size }}</span>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
             <!-- End Table -->
           </div>
         </div>

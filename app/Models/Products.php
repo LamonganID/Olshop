@@ -13,11 +13,12 @@ class Products extends Model
     protected $fillable = [
         'categories_id', 
         'name', 
+        'size',
         'slug', 
         'description', 
         'price', 
         'stock', 
-        'image'
+        'image' // added image
     ];
 
     public function category()
