@@ -69,9 +69,9 @@
         <div class="py-4">
             <h1 class="text-white text-2xl font-bold">Add Create Product</h1>
         </div>
-        <img src="" class="w-40 h-60 rounded-md" alt="">
+        <img src="" class="max-w-40 max-h-52 min-h-48 rounded-md" alt="">
     </div>
     <div class="col-span-2 row-span-2 ...">
-        <h1 class="text-2xl font-bold">Form Add </h1>
+        {{-- <h1 class="text-2xl font-bold">Form Add </h1> --}}
     </div>
 </div>
