@@ -8,6 +8,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Illuminate\Support\Str;
 
 #[Layout('layouts.app')]
 #[Title('Edit Product')]
@@ -38,10 +39,20 @@ class Edit extends Component
     {
         $this->validate();
 
+        $slug = Str::slug($this->product->name);
+        $originalSlug = $slug;
+        $counter = 1;
+
+        while (Products::where('slug', $slug)->where('id', '!=', $this->product->id)->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
         if ($this->image) {
             $this->product->image = $this->image->store('images', 'public');
         }
 
+        $this->product->slug = $slug;
         $this->product->save();
 
         session()->flash('message', 'Product updated successfully.');

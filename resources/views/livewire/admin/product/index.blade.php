@@ -1,8 +1,8 @@
 <!-- Table Section -->
-<div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
     <!-- Card -->
     <div class="flex flex-col">
-      <div class="-m-1.5 overflow-x-auto">
+      <div class="-m-1.5 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         <div class="p-1.5 min-w-full inline-block align-middle">
           <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-neutral-900 dark:border-neutral-700">
             <!-- Header -->
@@ -22,7 +22,7 @@
             </div>
 
             <!-- Table -->
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto ">
               <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                 <thead class="bg-gray-50 dark:bg-neutral-800">
                   <tr>
@@ -66,6 +66,11 @@
                         Size
                       </span>
                     </th>
+                    <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                        Actions
+                      </span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
@@ -97,6 +102,10 @@
                     <td class="size-px whitespace-nowrap px-6 py-3">
                       <span class="text-sm text-gray-800 dark:text-white">{{ $product->size }}</span>
                     </td>
+                    <td class="size-px whitespace-nowrap px-6 py-3">
+                      <x-danger-button wire:click="deleteProduct({{ $product->id }})">Remove</x-danger-button>
+                      <x-primary-button wire:click="edit({{ $product->id }})">Edit</x-primary-button>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -109,4 +118,5 @@
     </div>
     <!-- End Card -->
   </div>
-  <!-- End Table Section -->
+<!-- Preline JS -->
+<script src="{{ asset('node_modules/preline/dist/preline.js') }}"></script>

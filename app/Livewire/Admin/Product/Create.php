@@ -18,6 +18,7 @@ class Create extends Component
 {
     use WithFileUploads;
     public $name;
+    #[Rule('nullable|string|max:5')]
     public $size;
     public $categories_id;
     public $price;
@@ -39,10 +40,19 @@ class Create extends Component
     {
         $this->validate();
 
+        $slug = Str::slug($this->name);
+        $originalSlug = $slug;
+        $counter = 1;
+
+        while (Products::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
         $imagePath = $this->image ? $this->image->store('images', 'public') : null;
 
         Products::create([
-            'slug' => Str::slug($this->name),
+            'slug' => $slug,
             'size' => $this->size,
             'name' => $this->name,
             'categories_id' => $this->categories_id,

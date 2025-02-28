@@ -16,6 +16,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles()
         
+        <!-- Preline CSS -->
+        <link rel="stylesheet" href="{{ asset('node_modules/preline/dist/preline.css') }}">
+
         <script>
             // Check for dark mode preference
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -35,12 +38,13 @@
                     @if (isset($header))
                       {{ $header }}
                     @endif
-                      {{ $slot }}
                 </div>
-              </div>
+                {{ $slot }}
+            </div>
             <!-- End Content -->
         @livewireScripts()
-        <script src="./node_modules/preline/dist/preline.js"></script>
+        <!-- Preline JS -->
+        <script src="{{ asset('node_modules/preline/dist/preline.js') }}"></script>
         <script>
             // Dark mode toggle function
             function toggleDarkMode() {
