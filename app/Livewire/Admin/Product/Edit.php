@@ -32,6 +32,10 @@ class Edit extends Component
     public function mount($id)
     {
         $this->product = Products::find($id);
+        if (!$this->product) {
+            session()->flash('error', 'Product not found.');
+            return redirect()->route('products');
+        }
         $this->categories = Categories::all();
     }
 
@@ -64,4 +68,3 @@ class Edit extends Component
         return view('livewire.admin.product.edit');
     }
 }
-

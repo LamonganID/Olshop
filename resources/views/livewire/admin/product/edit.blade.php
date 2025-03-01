@@ -16,10 +16,14 @@
             @error('product.category_id')
                 <p class="text-red-500 text-sm mt-1">{{$message}}</p>
             @enderror
+                @if($categories->isEmpty())
+                <option value="">No categories available</option>
+            @else
                 <option value="">Select a category</option>
-        @foreach($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-        @endforeach
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            @endif
             </select>
         </div>
         <div class="mb-4">
