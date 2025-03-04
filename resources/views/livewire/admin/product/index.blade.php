@@ -10,9 +10,7 @@
               <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                Products Prices by Market Cap
               </h2>
-              <p class="text-sm text-gray-600 dark:text-neutral-400">
-                The global Products market cap today is $1.09 Trillion, a <span class="text-green-500">0.5%</span> change in the last 24 hours.
-              </p>
+
             </div>
             <!-- End Header -->
             <div class="px-6 py-4">
