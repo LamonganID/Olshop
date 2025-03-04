@@ -15,7 +15,7 @@
             <!-- End Header -->
             <div class="px-6 py-4">
                 <a href="{{ route('products.create') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500">
-                    Create New Product
+                    Add New Product
                 </a>
             </div>
 
