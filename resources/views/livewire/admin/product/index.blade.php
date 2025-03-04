@@ -10,7 +10,6 @@
               <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                Products Prices by Market Cap
               </h2>
-
             </div>
             <!-- End Header -->
             <div class="px-6 py-4">
