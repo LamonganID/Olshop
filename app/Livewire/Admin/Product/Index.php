@@ -13,16 +13,23 @@ class Index extends Component
 {
     public $products;
 
+    protected $listeners = ['productDeleted' => 'refreshProducts'];
+    
     public function mount()
     {
-        $this->products = Products::with('category')->get();
+        $this->products = Products::with('category')->orderBy('created_at', 'desc')->get();
     }
 
-    public function deleteProduct($id)
+    public function deleteProduct($id): void
     {
         $product = Products::find($id);
         $product->delete();
-        $this->products = Products::with('category')->get();
+        $this->refreshProducts();
+    }
+
+    public function refreshProducts()
+    {
+        $this->products = Products::with('category')->orderBy('created_at', 'desc')->get();
     }
 
     public function edit($id)
@@ -35,4 +42,3 @@ class Index extends Component
         return view('livewire.admin.product.index');
     }
 }
-
