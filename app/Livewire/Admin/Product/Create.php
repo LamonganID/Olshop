@@ -24,8 +24,7 @@ class Create extends Component
     public $price;
     public $stock;
     public $description;
-    public $image; // added image property
-
+    public $image; 
     protected $rules = [
         'name' => 'required|string|max:255',
         'size' => 'nullable|string|max:255',

@@ -18,7 +18,7 @@
         
         <!-- Preline CSS -->
         <link rel="stylesheet" href="{{ asset('node_modules/preline/dist/preline.css') }}">
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             // Check for dark mode preference
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
