@@ -10,7 +10,6 @@
               <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                Products Prices by Market Cap
               </h2>
-
             </div>
             <!-- End Header -->
             <div class="px-6 py-4">
@@ -25,49 +24,31 @@
                 <thead class="bg-gray-50 dark:bg-neutral-800">
                   <tr>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        #
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">#</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap min-w-64">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Products
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Products</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Price
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Price</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Categories
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Categories</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Description
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Description</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Stock
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Stock</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Image
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Image</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Size
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Size</span>
                     </th>
                     <th scope="col" class="px-6 py-3 text-start whitespace-nowrap">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                        Actions
-                      </span>
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">Actions</span>
                     </th>
                   </tr>
                 </thead>
@@ -101,7 +82,7 @@
                       <span class="text-sm text-gray-800 dark:text-white">{{ $product->size }}</span>
                     </td>
                     <td class="size-px whitespace-nowrap px-6 py-3">
-                      <x-danger-button wire:click="deleteProduct({{ $product->id }})">Delete</x-danger-button>
+                      <x-danger-button onclick="confirmDelete({{ $product->id }})">Delete</x-danger-button>
                       <x-primary-button wire:click="edit({{ $product->id }})">Edit</x-primary-button>
                     </td>
                   </tr>
@@ -117,4 +98,22 @@
     <!-- End Card -->
   </div>
 <!-- Preline JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete(product_Id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Livewire.emit('productDeleted', product_Id);
+            }
+        });
+    }
+</script>
 <script src="{{ asset('node_modules/preline/dist/preline.js') }}"></script>

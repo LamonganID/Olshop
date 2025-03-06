@@ -13,7 +13,8 @@ class Index extends Component
 {
     public $products;
 
-    protected $listeners = ['productDeleted' => 'refreshProducts'];
+protected $listeners = ['deleteProduct' => 'deleteProduct', 'productDeleted' => 'refreshProducts'];
+
     
     public function mount()
     {
@@ -37,7 +38,13 @@ class Index extends Component
         return redirect()->route('products.edit', ['id' => $id]);
     }
 
+    public function confirmDelete($id)
+    {
+        $this->deleteProduct($id);
+    }
+
     public function render()
+
     {
         return view('livewire.admin.product.index');
     }
