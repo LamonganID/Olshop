@@ -82,7 +82,7 @@
                       <span class="text-sm text-gray-800 dark:text-white">{{ $product->size }}</span>
                     </td>
                     <td class="size-px whitespace-nowrap px-6 py-3">
-                      <x-danger-button onclick="confirmDelete({{ $product->id }})">Delete</x-danger-button>
+                      <x-danger-button wire:click="deleteProduct({{ $product->id }})" >Delete</x-danger-button>
                       <x-primary-button wire:click="edit({{ $product->id }})">Edit</x-primary-button>
                     </td>
                   </tr>
@@ -98,7 +98,7 @@
     <!-- End Card -->
   </div>
 <!-- Preline JS -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function confirmDelete(product_Id) {
         Swal.fire({
@@ -112,8 +112,14 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 Livewire.emit('productDeleted', product_Id);
+            }else{
+                Swal.fire(
+                    'Cancelled',
+                    'Your data is safe :)',
+                    'error'
+                )
             }
         });
     }
-</script>
+</script> --}}
 <script src="{{ asset('node_modules/preline/dist/preline.js') }}"></script>

@@ -17,50 +17,40 @@ class Edit extends Component
 {
     use WithFileUploads;
     public $product;
-    public $categories;
+    public $name;
+    public $size;
+    public $price;
+    public $stock;
+    public $description;
+    public $categories_id;
     public $image;
 
     protected $rules = [
-        'product.name' => 'required|string|max:255',
-        'product.category_id' => 'required|exists:categories,id',
-        'product.price' => 'required|numeric',
-        'product.stock' => 'required|integer',
-        'product.description' => 'nullable|string',
-        'image' => 'nullable|image|max:1024', // 1MB Max
+        'name' => 'required|string|max:255',
+        'size' => 'nullable|string|max:255',
+        'price' => 'required|numeric',
+        'stock' => 'required|integer',
+        'description' => 'nullable|string',
+        'categories_id' => 'required|exists:categories,id',
+        'image' => 'nullable|image|max:2048', //max 2mb
     ];
-
-    public function mount($id)
+    protected $messages = [
+        'categories_id.exists' => 'The selected category is invalid.',
+    ];
+    public function mount(Products $product)
     {
-        $this->product = Products::find($id);
-        if (!$this->product) {
-            session()->flash('error', 'Product not found.');
-            return redirect()->route('products');
-        }
-        $this->categories = Categories::all();
+        $this->product = $product;
+        $this->name = $product->name;
+        $this->size = $product->size;
+        $this->price = $product->price;
+        $this->stock = $product->stock;
+        $this->description = $product->description;
+        $this->categories_id = $product->categories_id;
     }
 
-    public function updateProduct()
+    public function updatedCategoriesId()
     {
-        $this->validate();
-
-        $slug = Str::slug($this->product->name);
-        $originalSlug = $slug;
-        $counter = 1;
-
-        while (Products::where('slug', $slug)->where('id', '!=', $this->product->id)->exists()) {
-            $slug = $originalSlug . '-' . $counter;
-            $counter++;
-        }
-
-        if ($this->image) {
-            $this->product->image = $this->image->store('images', 'public');
-        }
-
-        $this->product->slug = $slug;
-        $this->product->save();
-
-        session()->flash('message', 'Product updated successfully.');
-        return redirect()->route('products');
+        $this->validateOnly('categories_id');
     }
 
     public function render()
