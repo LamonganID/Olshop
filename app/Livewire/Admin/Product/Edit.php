@@ -28,7 +28,7 @@ class Edit extends Component
     #[Required('image|max:2048')]
     public $image;
 
-    public $categories; // Declare the categories property
+    public $categories;
 
     public function updatedImage()
     {

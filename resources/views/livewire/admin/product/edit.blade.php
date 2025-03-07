@@ -21,7 +21,8 @@
         </h2>
       </div>
       
-      <form wire:submit.prevent="update">
+      <form wire:submit.prevent="updateProduct">
+        <input type="hidden" wire:model="productId" />
         <!-- Grid -->
         <div class="sm:col-span-3">
           <div class="inline-block">
@@ -133,7 +134,7 @@
           <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
             Cancel
           </button>
-          <button type="submit" wire:model="update" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+          <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
             Update Product
           </button>
         </div>
@@ -142,4 +143,3 @@
     <!-- End Card -->
   </div>
   <!-- End Card Section -->
-  
