@@ -19,7 +19,7 @@ class Edit extends Component
 
     #[Required('string|max:255|min:3')]
     public string $name;
-    #[Required('string|max:255')]
+    #[Required('string|max:255|min:1')]
     public string $size;
     #[Required('categories_id')]
     public string $categories_id;
@@ -66,7 +66,7 @@ class Edit extends Component
     {
         $this->validate([
             'name' => 'required|string|max:255|min:3',
-            'size' => 'required|string|max:255|min:5',
+            'size' => 'required|string|max:255|min:1',
             'categories_id' => 'required',
             'price' => 'required|numeric|min:1',
             'stock' => 'required|numeric|min:1',
