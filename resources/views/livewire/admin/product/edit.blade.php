@@ -21,7 +21,7 @@
         </h2>
       </div>
       
-      <form wire:submit.prevent="updateProduct">
+      <form wire:submit.prevent="update">
         <input type="hidden" wire:model="productId" />
         <!-- Grid -->
         <div class="sm:col-span-3">
