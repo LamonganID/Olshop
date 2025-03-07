@@ -76,7 +76,7 @@
                       <span class="text-sm text-red-500">{{$product->stock}}</span>
                     </td>
                     <td class="size-px whitespace-nowrap px-6 py-3">
-                      <img src="{{ asset('storage/' . $product->image) }}" class="w-16 h-16">
+                      <img src="{{ asset('storage/' . $product->image) ?? 'Nothing Image' }}" class="w-16 h-16">
                     </td>
                     <td class="size-px whitespace-nowrap px-6 py-3">
                       <span class="text-sm text-gray-800 dark:text-white">{{ $product->size }}</span>
