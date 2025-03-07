@@ -1,14 +1,27 @@
+
 <!-- Card Section -->
 <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 mx-auto">
+    @if (session()->has('message'))
+      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">Success!</strong>
+        <span class="block sm:inline">{{ session('message') }}</span>
+        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+          <svg wire:click="$set('isOpen', false)" class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <title>Close</title>
+            <path fill-rule="evenodd" d="M14.354 5.354a2 2 0 0 0-2.828 0L10 7.172 7.172 5.354a2 2 0 1 0-2.828 2.828L7.172 10l-2.828 2.828a2 2 0 1 0 2.828 2.828L10 12.828l2.828 2.828a2 2 0 1 0 2.828-2.828L12.828 10l2.828-2.828a2 2 0 0 0 0-2.828z"/>
+          </svg>
+        </span>
+      </div>
+    @endif
     <!-- Card -->
     <div class="bg-white rounded-xl shadow p-4 sm:p-7 dark:bg-neutral-800">
       <div class="mb-8">
         <h2 class="text-xl font-bold text-gray-800 dark:text-neutral-200">
-          Create Products
+          Edit Products
         </h2>
       </div>
-  
-      <form wire:submit.prevent="createProduct">
+      
+      <form wire:submit.prevent="update">
         <!-- Grid -->
         <div class="sm:col-span-3">
           <div class="inline-block">
@@ -120,8 +133,8 @@
           <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
             Cancel
           </button>
-          <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
-            Create Product
+          <button type="submit" wire:model="update" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+            Update Product
           </button>
         </div>
       </form>
@@ -129,5 +142,4 @@
     <!-- End Card -->
   </div>
   <!-- End Card Section -->
-</div>
-<!-- End Card Section -->  
+  

@@ -13,7 +13,7 @@ class Index extends Component
 {
     public $products;
 
-protected $listeners = ['deleteProduct' => 'deleteProduct', 'productDeleted' => 'refreshProducts'];
+    protected $listeners = ['deleteProduct' => 'deleteProduct', 'productDeleted' => 'refreshProducts'];
 
     
     public function mount()
