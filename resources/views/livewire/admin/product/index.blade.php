@@ -1,5 +1,11 @@
 <!-- Table Section -->
 <div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
+  @if('succsess' === session('message'))
+  <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+    <strong class="font-bold">Well done!</strong>
+    <span class="block sm:inline"> {{ session('message') }}</span>
+  </div>
+  @endif
     <!-- Card -->
     <div class="flex flex-col">
       <div class="-m-1.5 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
@@ -98,28 +104,3 @@
     <!-- End Card -->
   </div>
 <!-- Preline JS -->
-{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    function confirmDelete(product_Id) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Livewire.emit('productDeleted', product_Id);
-            }else{
-                Swal.fire(
-                    'Cancelled',
-                    'Your data is safe :)',
-                    'error'
-                )
-            }
-        });
-    }
-</script> --}}
-<script src="{{ asset('node_modules/preline/dist/preline.js') }}"></script>
